@@ -107,8 +107,16 @@ while (true)
             string? savePath = Console.ReadLine()?.Trim();
             if (!string.IsNullOrEmpty(savePath))
             {
-                index.Save(savePath);
-                Console.WriteLine("Saved.");
+                try
+                {
+                    index.Save(savePath);
+                    Console.WriteLine("Saved.");
+                }
+                catch
+                {
+                    Console.WriteLine("Error saving file.");
+                }
+                
             }
             break;
 
