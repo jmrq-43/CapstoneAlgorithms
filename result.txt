@@ -1,0 +1,90 @@
+algorithm2: 1, 3, 6, 10, 14, 17, 21, 24, 27, 30, 35, 38, 40, 41, 43, 44, 46, 48, 52, 55, 58
+algorithmic: 38
+algorithms: 24, 38
+analysis: 1, 6, 10, 17, 21, 27, 35, 40, 43, 44, 46, 48, 55, 58
+approximation: 30
+architecture: 12, 19
+artificial: 9, 16, 45
+bigo: 17
+binary: 23
+caching: 5, 50
+cases: 21
+classification: 32
+cloud: 37
+clustering: 32
+collision: 18
+complexity: 1, 3, 6, 10, 14, 17, 21, 27, 30, 35, 40, 41, 43, 46, 48, 55, 58
+compression: 26
+computer: 12, 33
+computing: 13, 37, 51
+concurrency: 13, 51
+containers: 37
+data: 2, 5, 11, 15, 18, 20, 23, 26, 28, 32, 36, 39, 41, 44, 47, 50, 53, 56, 59
+debugging: 42, 57
+decoding: 26
+deep: 29, 45, 54
+deployment: 8, 42, 57
+design: 1, 4, 12, 19, 43, 49, 55
+encoding: 26
+engineering: 8
+functional: 22
+generation: 34
+graphs: 2, 11, 28, 47, 56
+hash: 18, 59
+hashing: 2, 47
+heaps: 11, 36
+image: 33
+indexing: 25
+information: 25
+integration: 31
+intelligence: 9
+iteration: 14, 24
+language: 34
+languages: 4, 49
+learning: 9, 16, 29, 45, 54
+lists: 15, 53
+logic: 22
+machine: 9, 16, 29, 45, 54
+management: 5, 50
+memory: 5, 50
+microservices: 19
+mining: 32
+natural: 34
+networking: 7
+networks: 16, 54
+neural: 16, 54
+optimization: 6, 10, 30, 46, 52, 58
+organization: 12
+paradigms: 4, 22, 49
+parallel: 13, 51
+path: 28, 56
+patterns: 19
+priority: 36
+processing: 33, 34
+programming: 4, 22, 42, 49, 57
+protocols: 7
+queues: 15, 36, 53
+recursion: 14, 24, 27, 35, 48
+reinforcement: 29
+retrieval: 25
+routing: 7
+science: 20
+search: 23
+searching: 3, 25, 52
+security: 7
+shortest: 28, 56
+software: 8, 31
+sorting: 3, 52
+stacks: 15, 53
+statistics: 20
+storage: 5, 50
+structure: 44
+structures: 2, 11, 15, 18, 23, 28, 36, 39, 41, 47, 53, 56, 59
+synchronization: 13, 51
+tables: 18, 59
+testing: 8, 31, 42, 57
+trees: 2, 11, 23, 47, 59
+unit: 31
+virtualization: 37
+vision: 33
+visualization: 20
