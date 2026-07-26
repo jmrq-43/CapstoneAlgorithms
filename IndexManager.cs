@@ -6,27 +6,20 @@ public class IndexManager
 
     public void LoadFromFile(string path)
     {
+        int pageNumber = 1;
         foreach (string line in File.ReadLines(path))
         {
-            string trimmed = line.Trim();
-            if (string.IsNullOrEmpty(trimmed)) continue;
-
-            int colon = trimmed.IndexOf(':');
-            if (colon < 0) continue;
-
-            string term = trimmed[..colon].Trim();
-            string pagesPart = trimmed[(colon + 1)..].Trim();
-
-            if (string.IsNullOrEmpty(term)) continue;
-
-            List<int> pages = new();
-            foreach (string part in pagesPart.Split(','))
+            string[] words = line.Split(new[] { ' ', '.', ',', ';', '!' }, StringSplitOptions.RemoveEmptyEntries);
+            
+            foreach (string word in words)
             {
-                if (int.TryParse(part.Trim(), out int p))
-                    pages.Add(p);
+                string cleanWord = word.Trim().ToLower();
+                if (!string.IsNullOrEmpty(cleanWord))
+                {
+                    _tree.Insert(cleanWord, new List<int> { pageNumber });
+                }
             }
-
-            _tree.Insert(term, pages);
+            pageNumber++;
         }
     }
 
@@ -124,16 +117,57 @@ public class IndexManager
             return;
         }
 
-        int maxTermLen = 0;
+        Console.WriteLine("           Book Index\n");
+
+        int maxTermLen = 4;
         foreach (var (term, _) in all)
+        {
             if (term.Length > maxTermLen) maxTermLen = term.Length;
+        }
+
+        int termWidth = Math.Max(21, maxTermLen + 3);
+
+        Console.WriteLine("Term".PadRight(termWidth) + "Pages\n");
 
         foreach (var (term, pages) in all)
         {
-            pages.Sort();
-            string label = term.PadRight(maxTermLen);
-            string pagesStr = string.Join(", ", pages);
-            Console.WriteLine($"  {label}  {pagesStr}");
+            string pagesStr = FormatPages(pages);
+
+            Console.WriteLine(term.PadRight(termWidth) + pagesStr);
+            Console.WriteLine();
         }
+    }
+
+    private string FormatPages(List<int> pages)
+    {
+        if (pages == null || pages.Count == 0) return "";
+
+        var sorted = pages.Distinct().OrderBy(p => p).ToList();
+        List<string> parts = new();
+
+        int start = sorted[0];
+        int end = sorted[0];
+        for (int i = 1; i < sorted.Count; i++)
+        {
+            if (sorted[i] == end + 1)
+            {
+                end = sorted[i];
+            }
+            else
+            {
+                if (start == end)
+                    parts.Add(start.ToString());
+                else
+                    parts.Add($"{start} - {end}");
+
+                start = sorted[i];
+                end = sorted[i];
+            }
+        }
+        if (start == end)
+            parts.Add(start.ToString());
+        else
+            parts.Add($"{start} - {end}");
+        return string.Join(", ", parts);
     }
 }
